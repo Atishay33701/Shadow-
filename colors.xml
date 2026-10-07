@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="shadow_bg">#02070C</color>
+    <color name="shadow_panel">#06121B</color>
+    <color name="shadow_cyan">#18CFFF</color>
+</resources>
