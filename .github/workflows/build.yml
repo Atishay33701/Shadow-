@@ -35,7 +35,7 @@ steps:
       find . -maxdepth 3 \( -name "settings.gradle" -o -name "build.gradle" -o -name "gradlew" \) -print
 
     
-      - name: Diagnose and build SHADOW
+   - name: Diagnose and build SHADOW
         run: |
           echo "=== ROOT FILES ==="
           ls -la
