@@ -35,8 +35,17 @@ steps:
       find . -maxdepth 3 \( -name "settings.gradle" -o -name "build.gradle" -o -name "gradlew" \) -print
 
   - name: Build SHADOW APK
-    run: gradle assembleDebug --stacktrace
-
+   run: |
+  echo "=== ROOT DIRECTORY ==="
+  pwd
+  ls -la
+  echo "=== PROJECT FILES ==="
+  find . -maxdepth 4 -type f \( -name "settings.gradle" -o -name "build.gradle" -o -name "AndroidManifest.xml" \) -print
+  echo "=== GRADLE PROJECTS ==="
+  gradle projects
+  echo "=== AVAILABLE TASKS ==="
+  gradle tasks --all
+  
   - name: Upload APK
     uses: actions/upload-artifact@v4
     with:
