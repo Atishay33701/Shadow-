@@ -34,8 +34,21 @@ steps:
       ls -la
       find . -maxdepth 3 \( -name "settings.gradle" -o -name "build.gradle" -o -name "gradlew" \) -print
 
-  - name: Build SHADOW APK
-    run: gradle assembleDebug --stacktrace
+    
+      - name: Diagnose and build SHADOW
+        run: |
+          echo "=== ROOT FILES ==="
+          ls -la
+          echo "=== SETTINGS FILE ==="
+          cat settings.gradle
+          echo "=== APP FILES ==="
+          ls -la app
+          echo "=== GRADLE PROJECTS ==="
+          gradle projects
+          echo "=== APP TASKS ==="
+          gradle :app:tasks --all
+          echo "=== BUILD APK ==="
+          gradle :app:assembleDebug --stacktrace
 
   - name: Upload APK
     uses: actions/upload-artifact@v4
